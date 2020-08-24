@@ -9,13 +9,13 @@ import TransactionsRepository from '../repositories/TransactionsRepository';
 
 interface CSVTransaction {
   title: string;
-  type: 'income' | 'outcoume';
+  type: 'income' | 'outcome';
   value: number;
   category: string;
 }
 
 class ImportTransactionsService {
-  async execute(filePath: string): Promise<Transaction> {
+  async execute(filePath: string): Promise<Transaction[]> {
     const transactionsRepository = getCustomRepository(TransactionsRepository);
     const categoriesRepository = getRepository(Category);
 
